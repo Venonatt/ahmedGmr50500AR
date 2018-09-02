@@ -108,24 +108,5 @@ if (message.content.startsWith(prefix + "uptime")) {
 });
 
 
-codycode© :arrow_down:
-client.on('message', message => {
-      if (message.content.startsWith(prefix + 'clear')) {
-        if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(`**You Don't Have**  *MANAGE_MESSAGES*  **Permission **`).catch(console.error);
-    message.delete()
-    if(!message.channel.guild) return;
-let args = message.content.split(" ").slice(1);
-   const messagecount = parseInt(args.join(' '));
-   message.channel.fetchMessages({//DarkLast
-     limit: messagecount
- }).then(messages => message.channel.bulkDelete(messages));
-    var embed = new Discord.RichEmbed()
-        .setTitle(' :white_check_mark: Done I Cleared Chat')
-        .setColor('RANDOM')
-       message.channel.sendEmbed(embed).then(m => {//DarkLast
-    m.delete(1000);
-});
- };
- });
 
 client.login(process.env.BOT_TOKEN);
