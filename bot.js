@@ -208,6 +208,32 @@ msg.delete();
 });
 
   
-  
+
+
+client.on('message',  async  message  =>  {
+    var  user  =  message.mentions.users.first();
+    var  reason  =  message.content.split('  ').slice(2).join('  ');
+if(message.content.startsWith(prefix  +  'report'))  {
+    if(!user)  return  message.channel.send("**  -  mention  a  member  **")
+    if(!reason)  return  message.channel.send("**  -  Type  Reason  **")
+    let  reportembed  =  new  Discord.RichEmbed()
+    .setTitle(`**New  Reported  Staff  !**`)
+.addField("**-  Reported  User:**",  `${user}  with  ID  ${user.id}`) 
+.addField('**-  Reported  By:**',`${message.author.tag}`)
+.addField('**Reason:**',  `${reason}`,  true)
+.addField("**-  Reported  in:**",`${message.channel.name}`)
+.addField("**-  Time:**",`${message.createdAt}`)
+.setFooter("FOX Community©")
+.setColor('#060c37')
+message.guild.channels.find('name',  'reports').sendEmbed(reportembed)
+message.reply('**Thanks  For  Your  Report  :)**').then(msg  =>  msg.delete(3000));
+}
+
+
+
+})
+
+
+
 
 client.login(process.env.BOT_TOKEN);
