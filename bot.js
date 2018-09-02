@@ -116,4 +116,54 @@ if (message.content.startsWith(prefix + "uptime")) {
 }) ;
 
 
+client.on('message', message => {
+  if(message.content.startsWith(prefix + "js")) { 
+     message.channel.send("**اكتب الكود**").then(e => {
+    let filter = m => m.author.id === message.author.id
+    let lan = '';
+    let md = '';
+    let br = '';
+    let chaLan = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+    .then(collected => {
+      lan = collected.first().content
+      collected.first().delete()
+e.delete();
+     message.channel.send('**قم بكتابة وصف الكود**').then(m => {
+let chaMd = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+.then(co => {
+  md = co.first().content
+        co.first().delete()
+        m.delete();
+message.channel.send('**اخيرا . قم بكتابة صانع الكود**').then(ms => {
+let br = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+.then(col => {
+  br = col.first().content
+        col.first().delete()
+
+ms.delete()
+
+ message.channel.send('**تم النشر**').then(b => {
+
+var gg = message.guild.channels.find('name', 'codes-js')//اسم الروم الي تبي ينشر فيه
+if(!gg) return;
+if(gg) {
+gg.send(`@everyone | @here
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+**FOX Community©** :arrow_down:
+${lan}
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+**وصف الكود**: ${md}
+**تم النشر بواسطة**: <@${message.author.id}>
+**المصدر / الشخص الذي صنع الكود**: ${br}`);
+}        
+})
+})
+})
+})
+})
+})
+})
+ }
+})
+
 client.login(process.env.BOT_TOKEN);
