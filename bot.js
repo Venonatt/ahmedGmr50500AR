@@ -213,7 +213,7 @@ msg.delete();
 client.on('message',  async  message  =>  {
     var  user  =  message.mentions.users.first();
     var  reason  =  message.content.split('  ').slice(2).join('  ');
-if(message.content.startsWith(prefix  +  'report'))  {
+if(message.content.startsWith('$report'))  {
     if(!user)  return  message.channel.send("**  -  mention  a  member  **")
     if(!reason)  return  message.channel.send("**  -  Type  Reason  **")
     let  reportembed  =  new  Discord.RichEmbed()
