@@ -174,79 +174,6 @@ ${lan}
 })
 
 
-client.on('message',  async  message  =>  {
-    var  user  =  message.mentions.users.first();
-    var  reason  =  message.content.split('  ').slice(2).join('  ');
-if(message.content.startsWith('$report'))  {
-    if(!user)  return  message.channel.send("**  -  mention  a  member  **")
-    if(!reason)  return  message.channel.send("**  -  Type  Reason  **")
-    let  reportembed  =  new  Discord.RichEmbed()
-    .setTitle(`**New  Reported  Staff  !**`)
-.addField("**-  Reported  User:**",  `${user}  with  ID  ${user.id}`) 
-.addField('**-  Reported  By:**',`${message.author.tag}`)
-.addField('**Reason:**',  `${reason}`,  true)
-.addField("**-  Reported  in:**",`${message.channel.name}`)
-.addField("**-  Time:**",`${message.createdAt}`)
-.setFooter("FOX Community©")
-.setColor('#060c37')
-message.guild.channels.find('name',  'reports').sendEmbed(reportembed)
-message.reply('**Thanks  For  Your  Report  :)**').then(msg  =>  msg.delete(3000));
-}
-
-
-
-})
-
-
-
-
-const config = require('./configs.json');
-
-
-const size    = config.colors;
-const rainbow = new Array(size);
-
-for (var i=0; i<size; i++) {
-  var red   = sin_to_hex(i, 0 * Math.PI * 2/3); // 0   deg
-  var blue  = sin_to_hex(i, 1 * Math.PI * 2/3); // 120 deg
-  var green = sin_to_hex(i, 2 * Math.PI * 2/3); // 240 deg
-
-  rainbow[i] = '#'+ red + green + blue;
-}
-
-function sin_to_hex(i, phase) {
-  var sin = Math.sin(Math.PI / size * 2 * i + phase);
-  var int = Math.floor(sin * 127) + 128;
-  var hex = int.toString(16);
-
-  return hex.length === 1 ? '0'+hex : hex;
-}
-
-let place = 0;
-const servers = config.servers;
-
-function changeColor() {
-  for (let index = 0; index < servers.length; ++index) {        
-    client.guilds.get(servers[index]).roles.find('name', config.roleName).setColor(rainbow[place])
-        .catch(console.error);
-        
-    
-    
-    if(place == (size - 1)){
-      place = 0;
-    }else{
-      place++;
-    }
-  }
-}
-
-
-
-client.on('ready', () => {
-  console.log('Bot Is Online')
-  if(config.speed <60.000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}
-  setInterval(changeColor, config.speed);
-});
 
 client.on('message', async message => {
   if(message.content.startsWith(prefix + "submit 1")) {
@@ -315,84 +242,6 @@ client.on("message", message => {
 });
 
 
-
-
-const temp = {};
-client.on('message', async message => {
- if(message.channel.type === "روم مؤقت") return;
-  if(message.author.bot) return;
-   if(!temp[message.guild.id]) temp[message.guild.id] = {
-    time: "3000",
-     category : 'روم مؤقت',
-      channel : 'روم مؤقت'
-       }
-        if(message.content.startsWith('$temp on')){
-         if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
-          var ggg= message.guild.createChannel('click here', 'category').then(cg => {
-           var ccc =message.guild.createChannel('click here', 'voice').then(ch => {
-            ch.setParent(cg)
-             message.channel.send('**Done ,**')
-              client.on('message' , message => {
-               if(message.content === '$temp off') {
-                if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
-                 cg.delete()
-                  ch.delete()
-                   message.channel.send('**Done ,**')
-                    }
-                     });
-                      const time = temp[message.guild.id].time
-                       client.on('message' , message => {
-                        if (message.content.startsWith(prefix + "temptime")) {
-                         if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
-                          let newTime= message.content.split(' ').slice(1).join(" ")
-                          if(!newTime) return message.reply(`**${prefix}temptime <time>  \`1000 = 1s\`**`)
-	                 if(isNaN(newTime)) return message.reply(`** The Time Be Nambers :face_palm: **`);
-	                if(newTime < 1) return message.reply(`**The Time Be Up \`3000s\`**`)
-                       temp[message.guild.id].time = newTime
-                      message.channel.send(`**Temp Rooms Time Change To \`${newTime}\`**`);
-                     }
-                    });
-                   client.on('voiceStateUpdate', (old, neww) => {
-                  let newUserChannel = neww.voiceChannel
-                 let oldUserChannel = old.voiceChannel
-                temp[message.guild.id].category = cg.id
-               temp[message.guild.id].channel = ch.id
-              let channel = temp[message.guild.id].channel
-             let category = temp[message.guild.id].category
-            if(oldUserChannel === undefined && newUserChannel !== undefined && newUserChannel.id == channel) {
-           neww.guild.createChannel(neww.displayName , 'voice').then(c => {
-          c.setParent(category)
-         let scan = setTimeout(()=>{
-        if(!neww.voiceChannel) {
-       c.delete();
-      client.channels.get(channel).overwritePermissions(neww, {
-     CONNECT:true,
-    SPEAK:true
-   })
-  }
- }, temp[neww.guild.id].time);
-  c.overwritePermissions(neww, {
-   CONNECT:true,
-    SPEAK:true,
-     MANAGE_CHANNEL:true,
-      MUTE_MEMBERS:true,
-       DEAFEN_MEMBERS:true,
-	MOVE_MEMBERS:true,
-	 VIEW_CHANNEL:true
-	  })
-	   neww.setVoiceChannel(c)
-            })
-             client.channels.get(channel).overwritePermissions(neww, {
-	      CONNECT:false,
-	       SPEAK:false
-		})
-               }
-              })
-             })
-           })
-          }
-      });
-
 client.on('message', message => {
             if (message.content.startsWith(prefix + "تقديم")) {
      let embed = new Discord.RichEmbed()
@@ -409,6 +258,8 @@ client.on('ready', () => {
   if(config.speed <60.000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}
   setInterval(changeColor, config.speed);
 });
+
+
 
 client.on('message', async message => {
   if(message.content.startsWith(prefix + "submit 2")) {
