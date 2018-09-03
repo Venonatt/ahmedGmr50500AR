@@ -249,7 +249,7 @@ client.on('ready', () => {
 });
 
 client.on('message', async message => {
-  if(message.content.startsWith(prefix + "تقديم 1")) {
+  if(message.content.startsWith(prefix + "submit 1")) {
     await message.channel.send("** [`js`,`py`,`eric`,`html`,`io`] مرحبا.. أكتب أي لغة برمجة خاص بك**").then(e => {
     let filter = m => m.author.id === message.author.id
     let lan = '';
@@ -397,8 +397,8 @@ client.on('message', message => {
             if (message.content.startsWith(prefix + "تقديم")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
-.addField('     **تقديم 1$** ' ,' **للتقديم طلب رتب لغة برمجة** ')
-.addField('     **تقديم 2$** ' ,' **للتقديم طلب رتب سيرفر** ')
+.addField('     **submit 1$** ' ,' **للتقديم طلب رتب لغة برمجة** ')
+.addField('     **submit 2$** ' ,' **للتقديم طلب رتب سيرفر** ')
 .setColor('#ff4f00','#0a0a0a','#00ffb5')
   message.channel.sendEmbed(embed);
     }
@@ -411,7 +411,7 @@ client.on('ready', () => {
 });
 
 client.on('message', async message => {
-  if(message.content.startsWith(prefix + "تقديم 2")) {
+  if(message.content.startsWith(prefix + "submit 2")) {
     await message.channel.send("** مرحبا أي رتبة تريد؟**").then(e => {
     let filter = m => m.author.id === message.author.id
     let lan = '';
