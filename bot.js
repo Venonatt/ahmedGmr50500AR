@@ -44,6 +44,9 @@ const bannedwords = [
   "!top"
 
 ]
+
+
+
 client.on('message', message => {
   var Muted = message.guild.roles.find("name", "muted");
   var warn = message.guild.roles.find("name", "warn");
@@ -62,6 +65,10 @@ client.on('message', message => {
   }
   }
   })
+
+
+
+
 
 
 client.on('message', message => {
