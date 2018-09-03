@@ -249,7 +249,7 @@ client.on('ready', () => {
 });
 
 client.on('message', async message => {
-  if(message.content.startsWith(prefix + "تقديم")) {
+  if(message.content.startsWith(prefix + "تقديم 1")) {
     await message.channel.send("** [`js`,`py`,`eric`,`html`,`io`] مرحبا.. أكتب أي لغة برمجة خاص بك**").then(e => {
     let filter = m => m.author.id === message.author.id
     let lan = '';
@@ -393,6 +393,114 @@ client.on('message', async message => {
           }
       });
 
+client.on('message', message => {
+            if (message.content.startsWith(prefix + "تقديم")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField('     **تقديم 1$** ' ,' **للتقديم طلب رتب لغة برمجة** ')
+.addField('     **تقديم 2$** ' ,' **للتقديم طلب رتب سيرفر** ')
+.setColor('#ff4f00','#0a0a0a','#00ffb5')
+  message.channel.sendEmbed(embed);
+    }
+});
+
+client.on('message', async message => {
+  if(message.content.startsWith(prefix + "تقديم 2")) {
+    await message.channel.send("** [`Halper`,`Admin`,`Seller`] مرحبا.. أكتب رتبة الذي تريد**").then(e => {
+    let filter = m => m.author.id === message.author.id
+    let lan = 'Halper';
+    let md = '';
+    let br = '';
+    let chaLan = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+    .then(collected => {
+      lan = collected.first().content
+      collected.first().delete()
+e.delete();
+     message.channel.send('**حسنا...مالذي ستفعله بهذه رتبة**').then(m => {
+let chaMd = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+.then(co => {
+  md = co.first().content
+        co.first().delete()
+        m.delete();
+message.channel.send('**رائع..هل ستكون متفاعل بهذه رتبة؟ **').then(ms => {
+let br = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+.then(col => {
+  br = col.first().content
+        col.first().delete()
+
+ms.delete()
+
+	
+    let filter = m => m.author.id === message.author.id
+    let lan = 'Admin';
+    let md = '';
+    let br = '';
+    let chaLan = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+    .then(collected => {
+      lan = collected.first().content
+      collected.first().delete()
+e.delete();
+     message.channel.send('**حسنا...مالذي ستفعله بهذه رتبة**').then(m => {
+let chaMd = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+.then(co => {
+  md = co.first().content
+        co.first().delete()
+        m.delete();
+message.channel.send('**رائع..هل ستكون متفاعل بهذه رتبة؟ **').then(ms => {
+let br = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+.then(col => {
+  br = col.first().content
+        col.first().delete()
+
+ms.delete()
+
+    let filter = m => m.author.id === message.author.id
+    let lan = 'Seller';
+    let md = '';
+    let br = '';
+    let chaLan = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+    .then(collected => {
+      lan = collected.first().content
+      collected.first().delete()
+e.delete();
+     message.channel.send('**حسنا...ماالذي رح تبيعه**').then(m => {
+let chaMd = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+.then(co => {
+  md = co.first().content
+        co.first().delete()
+        m.delete();
+message.channel.send('**رائع..هل ستكون متفاعل بهذه رتبة؟ **').then(ms => {
+let br = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+.then(col => {
+  br = col.first().content
+        col.first().delete()
+
+ms.delete()
+
+ message.channel.send('جاري التقديم ..').then(b => {
+        setTimeout(() => {
+  b.edit(`**تم التقديم وسيتم الرد فـ اقرب وقت**`)
+        },2000);
+var gg = message.guild.channels.find('name', 'التقديمات')
+if(!gg) return;
+if(gg) {
+gg.send({embed : new Discord.RichEmbed()
+.setDescription(`**  ماهي رتبة الذي تريد :question:  : \n ${lan}\nماالذي سوف تفعل بالرتبة؟ :link: :\n ${md} \nهل ستكون متفاعل؟ :question: :\n ${br}  \nتم التقديم بواسطة  : <@${message.author.id}> **`)  
+          .setFooter(`FOX Community©`)
+.setTimestamp()
+});
+
+
+}        
+})
+})
+})
+})
+})
+})
+})
+ }
+})
 
 
 client.login(process.env.BOT_TOKEN);
