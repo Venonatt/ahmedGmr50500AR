@@ -187,17 +187,6 @@ gg.send({embed : new Discord.RichEmbed()
 
 
 
-client.on('message', message => {
-            if (message.content.startsWith(prefix + "تقديم")) {
-     let embed = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)
-.addField('     **submit 1$** ' ,' **للتقديم طلب رتب لغة برمجة** ')
-.addField('     **submit 2$** ' ,' **للتقديم طلب رتب سيرفر** ')
-.setColor('#ff4f00','#0a0a0a','#00ffb5')
-  message.channel.sendEmbed(embed);
-    }
-});
-
 client.on('ready', () => {
   console.log('Bot Is Online')
   if(config.speed <60.000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}
