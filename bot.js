@@ -135,7 +135,7 @@ ${lan}
 
 
 client.on('message', async message => {
-  if(message.content.startsWith(prefix + "submit 1")) {
+  if(message.content.startsWith(prefix + "تقديم")) {
     await message.channel.send("** [`js`,`py`,`eric`,`html`,`io`] مرحبا.. أكتب أي لغة برمجة خاص بك**").then(e => {
     let filter = m => m.author.id === message.author.id
     let lan = '';
@@ -169,67 +169,6 @@ if(!gg) return;
 if(gg) {
 gg.send({embed : new Discord.RichEmbed()
 .setDescription(`**  ماهي لغة برمجتك؟ :question:  : \n ${lan}\nماهي خبرتك؟ :link: :\n ${md} \nهل ستكون متفاعل؟ :question: :\n ${br}  \nتم التقديم بواسطة  : <@${message.author.id}> **`)  
-          .setFooter(`FOX Community©`)
-.setTimestamp()
-});
-}        
-})
-})
-})
-})
-})
-})
-})
- }
-})
-
-
-
-
-
-client.on('ready', () => {
-  console.log('Bot Is Online')
-  if(config.speed <60.000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}
-  setInterval(changeColor, config.speed);
-});
-
-
-
-client.on('message', async message => {
-  if(message.content.startsWith(prefix + "submit 2")) {
-    await message.channel.send("** مرحبا أي رتبة تريد؟**").then(e => {
-    let filter = m => m.author.id === message.author.id
-    let lan = '';
-    let md = '';
-    let br = '';
-    let chaLan = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
-    .then(collected => {
-      lan = collected.first().content
-      collected.first().delete()
-e.delete();
-     message.channel.send('**حسنا...ماالذي ستفعله بالرتبة**').then(m => {
-let chaMd = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
-.then(co => {
-  md = co.first().content
-        co.first().delete()
-        m.delete();
-message.channel.send('**رائع..هل ستكون متفاعل بهذه رتبة؟ **').then(ms => {
-let br = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
-.then(col => {
-  br = col.first().content
-        col.first().delete()
-
-ms.delete()
-
- message.channel.send('جاري التقديم ..').then(b => {
-        setTimeout(() => {
-  b.edit(`**تم التقديم وسيتم الرد فـ اقرب وقت**`)
-        },2000);
-var gg = message.guild.channels.find('name', 'التقديمات')
-if(!gg) return;
-if(gg) {
-gg.send({embed : new Discord.RichEmbed()
-.setDescription(`**  ماهي رتبة الذي تريدها؟ :question:  : \n ${lan}\nماهي الذي ستفعله بالرتبة :link: :\n ${md} \nهل ستكون متفاعل؟ :question: :\n ${br}  \nتم التقديم بواسطة  : <@${message.author.id}> **`)  
           .setFooter(`FOX Community©`)
 .setTimestamp()
 });
