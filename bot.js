@@ -78,13 +78,6 @@ ${lan}
 **وصف الكود**: ${md}
 **تم النشر بواسطة**: <@${message.author.id}>
 **المصدر / الشخص الذي صنع الكود**: ${br}`);
-   msg.react('✔').then( r => {
-        msg.react('❌')
- 
-        let blueFilter = (reaction, user) => reaction.emoji.name === '✔' && user.id === message.author.id;
-    let orangeFilter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
-
-   
 }        
 })
 })  
