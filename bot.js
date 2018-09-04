@@ -40,7 +40,6 @@ client.user.setGame(`System`,"http://twitch.tv/S-F")
 
 
 client.on('message', message => {
-  var prefix ="cy$"
   if(message.content.startsWith(prefix + "تقديم")) {
      message.channel.send("**حسنا... قم بكتابه اسمك**").then(e => {
     let filter = m => m.author.id === message.author.id
