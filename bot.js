@@ -40,6 +40,97 @@ client.user.setGame(`System`,"http://twitch.tv/S-F")
 
 
 client.on('message', message => {
+  var prefix ="cy$"
+  if(message.content.startsWith(prefix + "تقديم")) {
+     message.channel.send("**حسنا... قم بكتابه اسمك**").then(e => {
+    let filter = m => m.author.id === message.author.id
+    let lan = '';
+    let md = '';
+    let br = '';
+    let chaLan = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+    .then(collected => {
+      lan = collected.first().content
+      collected.first().delete()
+e.delete();
+     message.channel.send('**[`eric`,`html`,`io`,`py`,`js`]رائع... قم بكتابه لغتك البرمجيه**').then(m => {
+let chaMd = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+.then(co => {
+  md = co.first().content
+        co.first().delete()
+        m.delete();
+message.channel.send('** قم بكتابه خبرتك**').then(ms => {
+let br = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+.then(col => {
+  br = col.first().content
+        col.first().delete()
+
+ms.delete()
+
+ message.channel.send('تم الارسال').then(b => {
+
+var gg = message.guild.channels.find('name', 'التقديمات')
+if(!gg) return;
+if(gg) {
+gg.send({embed : new Discord.RichEmbed()
+  .setDescription(`** اسم: \n ${lan}\nلغه :link: :\n ${md} \nخبره :\n ${br}  \nتم التقديم بواسطة  : <@${message.author.id}> **`)  
+          .setFooter(`codycode`)
+.setTimestamp()
+});
+}        
+})
+})
+})
+})
+})
+})
+})
+ }
+})
+
+client.on('message', message => {
+  if(!message.channel.guild) return;
+if(message.content.startsWith(prefix + "bc")) {
+if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
+if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
+let args = message.content.split(" ").join(" ").slice(prefix.length);
+let copy = "commandly";
+let request = `Requested By ${message.author.username}`;
+if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
+msg.react('✅')
+.then(() => msg.react('❌'))
+.then(() =>msg.react('✅'))
+
+let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
+let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
+let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
+let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
+reaction1.on("collect", r => {
+message.channel.send(`☑ | Done ... The Broadcast Message Has Been Sent For ${message.guild.members.size} Members`).then(m => m.delete(5000));
+message.guild.members.forEach(m => {
+var bc = new
+Discord.RichEmbed()
+.setColor('RANDOM')
+.setTitle('Broadcast')
+.addField('Server', message.guild.name)
+.addField('Sender', message.author.username)
+.addField('Message', args)
+.setThumbnail(message.author.avatarURL)
+.setFooter(copy, client.user.avatarURL);
+m.send({ embed: bc })
+msg.delete();
+})
+})
+reaction2.on("collect", r => {
+message.channel.send(`**Broadcast Canceled.**`).then(m => m.delete(5000));
+msg.delete();
+})
+})
+}
+});
+
+
+
+client.on('message', message => {
   if(message.content.startsWith(prefix + "js")) { 
      message.channel.send("**اكتب الكود**").then(e => {
     let filter = m => m.author.id === message.author.id
@@ -80,7 +171,6 @@ ${lan}
 **المصدر / الشخص الذي صنع الكود**: ${br}`);
 }        
 })
-})  
 })
 })
 })
@@ -91,55 +181,15 @@ ${lan}
 })
 
 
+  
 
-client.on('message', async message => {
-  if(message.content.startsWith(prefix + "تقديم")) {
-    await message.channel.send("** [`js`,`py`,`eric`,`html`,`io`] مرحبا.. أكتب أي لغة برمجة خاص بك**").then(e => {
-    let filter = m => m.author.id === message.author.id
-    let lan = '';
-    let md = '';
-    let br = '';
-    let chaLan = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
-    .then(collected => {
-      lan = collected.first().content
-      collected.first().delete()
-e.delete();
-     message.channel.send('**حسنا...ماهي خبرتك في برمجة**').then(m => {
-let chaMd = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
-.then(co => {
-  md = co.first().content
-        co.first().delete()
-        m.delete();
-message.channel.send('**رائع..هل ستكون متفاعل بهذه رتبة؟ **').then(ms => {
-let br = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
-.then(col => {
-  br = col.first().content
-        col.first().delete()
 
-ms.delete()
 
- message.channel.send('جاري التقديم ..').then(b => {
-        setTimeout(() => {
-  b.edit(`**تم التقديم وسيتم الرد فـ اقرب وقت**`)
-        },2000);
-var gg = message.guild.channels.find('name', 'التقديمات')
-if(!gg) return;
-if(gg) {
-gg.send({embed : new Discord.RichEmbed()
-.setDescription(`**  ماهي لغة برمجتك؟ :question:  : \n ${lan}\nماهي خبرتك؟ :link: :\n ${md} \nهل ستكون متفاعل؟ :question: :\n ${br}  \nتم التقديم بواسطة  : <@${message.author.id}> **`)  
-          .setFooter(`FOX Community©`)
-.setTimestamp()
-});
-}        
-})
-})
-})
-})
-})
-})
-})
- }
-})
+client.on('guildMemberAdd', member=> {
+    member.addRole(member.guild.roles.find("name","MEMBER"));
+    });
+
+
 
 
 
