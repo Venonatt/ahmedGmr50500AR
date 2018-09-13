@@ -421,6 +421,15 @@ msg.delete();
 
   
   
+client.on('message', message => {
+  if (message.content === 'هلا') {
+    const embed = new RichEmbed()
+      .setTitle('A slick little embed')
+      .setColor(0xFF0000)
+      .setDescription('${member} هلا والله');
+    message.channel.send(embed);
+  }
+});
 
 
 client.login(process.env.BOT_TOKEN);
