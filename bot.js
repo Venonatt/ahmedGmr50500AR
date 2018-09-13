@@ -115,7 +115,7 @@ Discord.RichEmbed()
 .addField('Message', args)
 .setThumbnail(message.author.avatarURL)
 .setFooter(copy, client.user.avatarURL);
-m.send({ embed: })
+m.send({ embed: bc })
 msg.delete();
 })
 })
