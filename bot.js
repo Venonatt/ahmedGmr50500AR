@@ -32,17 +32,11 @@ client.user.setGame(`System`,"http://twitch.tv/S-F")
  
 
 var Nedjmo1 = [
-"***asd2828@qq.com:Asmodeus4486***",
-"***aaron.holmes56@gmail.com:Pobox118***",
-"***husst_3214@hotmail.com:1985turk***",
-"***mlgburd62@yahoo.com:tburd1404***",
-"***scottbarrett99@gmail.com:1234Vivi***",
-"***isaacchang87@gmail.com:1superman***",
-"***samdonglenatorfan143@gmail.com:sonicgen12***",
+"هلا والله نورت سيرفر"
 ]
 
 client.on('message', message => {
-    if (message.content === 'AccountMinecraft') {
+    if (message.content === 'هلا') {
         message.reply(Nedjmo1);
     }
 });
