@@ -44,7 +44,7 @@ var cats = [
         var args = message.content.split(" ").slice(1);
       if (message.content === 'حساب ماين كرافت') {
          var cat = new Discord.RichEmbed()
-.setImage(cats[Math.floor(Math.random() * cats.length)])
+.setTitle(cats)
 message.channel.sendEmbed(cat);
     }
 });
