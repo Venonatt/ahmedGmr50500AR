@@ -42,7 +42,7 @@ var cats = [
 ]
     client.on('message', message => {
         var args = message.content.split(" ").slice(1);
-    if(message.content.startsWith('حساب ماين كرافت')) {
+      if (message.content === 'حساب ماين كرافت') {
          var cat = new Discord.RichEmbed()
 .setImage(cats[Math.floor(Math.random() * cats.length)])
 message.channel.sendEmbed(cat);
@@ -50,6 +50,13 @@ message.channel.sendEmbed(cat);
 });
 
 
+
+
+client.on('ready', () => {
+client.user.setGame(`System`)
+});
+  
+  
  client.on("guildMemberAdd", member => {
   member.createDM().then(function (channel) {
   return channel.send(` ولكم نورت السيرفر 😘👍 
