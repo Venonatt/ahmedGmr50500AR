@@ -31,7 +31,7 @@ client.user.setGame(`System`,"http://twitch.tv/S-F")
 
  
 
-var cats = [
+var Nedjmo1 = [
 "***asd2828@qq.com:Asmodeus4486***",
 "***aaron.holmes56@gmail.com:Pobox118***",
 "***husst_3214@hotmail.com:1985turk***",
@@ -40,14 +40,13 @@ var cats = [
 "***isaacchang87@gmail.com:1superman***",
 "***samdonglenatorfan143@gmail.com:sonicgen12***",
 ]
-    client.on('message', message => {
-        var args = message.content.split(" ").slice(1);
-      if (message.content === 'حساب ماين كرافت') {
-         var cat = new Discord.RichEmbed()
-.setTitle(cats)
-message.channel.sendEmbed(cat);
+
+client.on('message', message => {
+    if (message.content === 'AccountMinecraft') {
+        message.reply(Nedjmo1);
     }
 });
+
 
 
 
