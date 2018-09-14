@@ -29,6 +29,26 @@ client.user.setGame(`System`,"http://twitch.tv/S-F")
 });
 
 
+ 
+
+var cats = [
+"***asd2828@qq.com:Asmodeus4486***",
+"***aaron.holmes56@gmail.com:Pobox118***",
+"***husst_3214@hotmail.com:1985turk***",
+"***mlgburd62@yahoo.com:tburd1404***",
+"***scottbarrett99@gmail.com:1234Vivi***",
+"***isaacchang87@gmail.com:1superman***",
+"***samdonglenatorfan143@gmail.com:sonicgen12***",
+]
+    client.on('message', message => {
+        var args = message.content.split(" ").slice(1);
+    if(message.content.startsWith('حساب ماين كرافت')) {
+         var cat = new Discord.RichEmbed()
+.setImage(cats[Math.floor(Math.random() * cats.length)])
+message.channel.sendEmbed(cat);
+    }
+});
+
 
  client.on("guildMemberAdd", member => {
   member.createDM().then(function (channel) {
