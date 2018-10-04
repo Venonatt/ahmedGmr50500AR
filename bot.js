@@ -483,7 +483,7 @@ msg.delete();
 
 
 client.on('message', message => {
-  if(message.content.startsWith("ٌRegister")) {
+  if(message.content.startsWith("Register")) {
      message.channel.send("**`[Name#0000]` أكتب اسمك مع التاق **").then(e => {
     let filter = m => m.author.id === message.author.id
     let lan = '';
