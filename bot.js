@@ -540,5 +540,51 @@ date of Birth:${dj}
  }
 })
 
+client.on('message', message => {
+  if(message.content.startsWith("ٌRegister")) {
+     message.channel.send("**`[Name#0000]` أكتب اسمك مع التاق **").then(e => {
+    let filter = m => m.author.id === message.author.id
+    let lan = '';
+    let md = '';
+    let br = '';
+    let chaLan = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+    .then(collected => {
+      lan = collected.first().content
+      collected.first().delete()
+e.delete();
+     message.channel.send('**حسنا اكتب ايمايلك**').then(m => {
+let chaMd = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+.then(co => {
+  md = co.first().content
+        co.first().delete()
+        m.delete();
+message.channel.send('**حسنا كلمة سر**').then(ms => {
+let br = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+.then(col => {
+  br = col.first().content
+        col.first().delete()
+
+ms.delete()
+
+ message.channel.send('تم الارسال').then(b => {
+
+var gg = message.guild.channels.find('name', 'التقديمات')
+if(!gg) return;
+if(gg) {
+gg.send({embed : new Discord.RichEmbed()
+  .setDescription(`** اسم: \n ${lan}\nايمايل :\n ${md} \nكلمة سر :\n ${br}  \nايدي   : ${message.author.id} **`)  
+          .setFooter(`codycode`)
+.setTimestamp()
+});
+}        
+})
+})
+})
+})
+})
+})
+})
+ }
+})
 
 client.login(process.env.BOT_TOKEN);
