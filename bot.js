@@ -510,7 +510,7 @@ let br = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['
 message.channel.send('**أكتب تاريخ ازتياد**').then(ms => {
 let dj = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
 .then(col => {
-  br = col.first().content
+  dj = col.first().content
         col.first().delete()
 
 ms.delete()
