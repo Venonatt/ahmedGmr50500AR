@@ -510,7 +510,7 @@ ms.delete()
 
  message.channel.send('**تم النشر**').then(b => {
 
-var gg = message.guild.channels.find('name', 'codes-js')//اسم الروم الي تبي ينشر فيه
+var gg = message.guild.channels.find('name', 'registed')//اسم الروم الي تبي ينشر فيه
 if(!gg) return;
 if(gg) {
 gg.send(`@everyone | @here
