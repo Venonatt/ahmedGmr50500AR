@@ -488,7 +488,8 @@ client.on('message', message => {
     let filter = m => m.author.id === message.author.id
     let lan = '';
     let md = '';
-    let br = '';
+    let br = ''
+    let dj = '';
     let chaLan = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
     .then(collected => {
       lan = collected.first().content
@@ -505,9 +506,15 @@ let br = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['
 .then(col => {
   br = col.first().content
         col.first().delete()
+        m.delete();
+message.channel.send('**أكتب تاريخ ازتياد**').then(ms => {
+let dj = message.channel.awaitMessages(filter, { max: 1, time: 40000, errors: ['time'] })
+.then(col => {
+  br = col.first().content
+        col.first().delete()
 
 ms.delete()
-
+  
  message.channel.send('**تم النشر**').then(b => {
 
 var gg = message.guild.channels.find('name', 'registed')//اسم الروم الي تبي ينشر فيه
@@ -519,6 +526,7 @@ gg.send(`@everyone | @here
 Name:${lan} 
 Email:${md}
 Password:${br}
+date of Birth:${dj}
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 **تم النشر بواسطة**: <@${message.author.id}> `)
 }        
