@@ -542,7 +542,7 @@ client.on('message', message => {
 .addField('     **$eric** ' , '**eric للنشر كود في سيرفر**') 
 .addField('     **$html** ' ,' **html للنشر كود في سيرفر**')
 .addField('     **$py** ' , '**py للنشر كود في سيرفر**')
-.addField('     **$Register** ' ,' **للتسجيل في سيرفر** ')
+.addField('     **Register** ' ,' **للتسجيل في سيرفر** ')
 .addField('     **$clear ** ' ,' **لمسح شات** ')
 .addField('     **$bc ** ' ,' **للنشر في سيرفر** ')
 .setColor('#ff5e00')
