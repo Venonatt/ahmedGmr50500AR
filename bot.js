@@ -533,7 +533,7 @@ gg.send({embed : new Discord.RichEmbed()
 
 
 client.on('message', message => {
-            if (message.content.startsWith(prefix + "help-system")) {
+            if (message.content.startsWith(prefix + "help" + "-system")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .addField('     **$تقديم** ' ,' **[io],[js],[eric],[html],[py] تقديم رتبة مبرمج** ')
@@ -562,7 +562,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-            if (message.content.startsWith(prefix + "help")) {
+            if (message.content.startsWith(prefix + "help" + "-codes")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .addField('     **$help-codes-js**  ' ,' **js يعرض لك اكواد بلغة ** ')
@@ -576,7 +576,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-            if (message.content.startsWith(prefix + "help-codes-js")) {
+            if (message.content.startsWith(prefix + "help" + "-codes" +"-js")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .addField('     **سوف يتم اضافة اكواد** ')
@@ -586,7 +586,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-            if (message.content.startsWith(prefix + "help-codes-py")) {
+            if (message.content.startsWith(prefix + "help" + "-codes" +"-py")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .addField('     **سوف يتم اضافة اكواد** ')
@@ -596,7 +596,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-            if (message.content.startsWith(prefix + "help-codes-io")) {
+            if (message.content.startsWith(prefix + "help" + "-codes" +"-io")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .addField('     **سوف يتم اضافة اكواد** ')
@@ -606,7 +606,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-            if (message.content.startsWith(prefix + "help-codes-html")) {
+            if (message.content.startsWith(prefix + "help" + "-codes" +"-html")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .addField('     **سوف يتم اضافة اكواد** ')
@@ -616,7 +616,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-            if (message.content.startsWith(prefix + "help-codes-eric")) {
+            if (message.content.startsWith(prefix + "help" + "-codes" +"-eric")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .addField('     **سوف يتم اضافة اكواد** ')
