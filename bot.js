@@ -78,7 +78,7 @@ ms.delete()
 
  message.channel.send('تم الارسال').then(b => {
 
-var gg = message.guild.channels.find('name', 'التقديمات')
+var gg = message.guild.channels.find('name', '❆-submissions')
 if(!gg) return;
 if(gg) {
 gg.send({embed : new Discord.RichEmbed()
