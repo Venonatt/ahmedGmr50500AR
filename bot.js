@@ -514,7 +514,7 @@ var gg = message.guild.channels.find('name', 'registed')
 if(!gg) return;
 if(gg) {
 gg.send({embed : new Discord.RichEmbed()
-  .setDescription(`** Name : \n ${lan}\nEmail :\n ${md} \nPassword :\n ${br}  \nid   :/n${message.author.id} **`)  
+  .setDescription(`** Name : \n ${lan}\nEmail :\n ${md} \nPassword :\n ${br}  \nid   :/n ${message.author.id} **`)  
           .setFooter(`FOX Community©`)
 .setTimestamp()
 });
@@ -528,5 +528,103 @@ gg.send({embed : new Discord.RichEmbed()
 })
  }
 })
+
+
+
+
+client.on('message', message => {
+            if (message.content.startsWith(prefix + "help-system")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField('     **$تقديم** ' ,' **[io],[js],[eric],[html],[py] تقديم رتبة مبرمج** ')
+.addField('     **$js**  ' ,' **js للنشر كود في سيرفر** ')
+.addField('     **$io** ' , '**io للنشر كود في سيرفر**') 
+.addField('     **$eric** ' , '**eric للنشر كود في سيرفر**') 
+.addField('     **$html** ' ,' **html للنشر كود في سيرفر**')
+.addField('     **$py** ' , '**py للنشر كود في سيرفر**')
+.addField('     **$Register** ' ,' **للتسجيل في سيرفر** ')
+.addField('     **$clear ** ' ,' **لمسح شات** ')
+.addField('     **$bc ** ' ,' **للنشر في سيرفر** ')
+.setColor('#ff5e00')
+  message.channel.sendEmbed(embed);
+    }
+});
+
+client.on('message', message => {
+            if (message.content.startsWith(prefix + "help")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField('     **$help-system** ' ,' **System يعرض لك اوامر بوت** ')
+.addField('     **$help-codes**  ' ,' **يعرض لك اوامر اكواد للتضيفها في سيرفر** ')
+.setColor('#ff5e00')
+  message.channel.sendEmbed(embed);
+    }
+});
+
+client.on('message', message => {
+            if (message.content.startsWith(prefix + "help")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField('     **$help-codes-js**  ' ,' **js يعرض لك اكواد بلغة ** ')
+.addField('     **$help-codes-py**  ' ,' **py يعرض لك اكواد بلغة ** ')
+.addField('     **$help-codes-io**  ' ,' **io يعرض لك اكواد بلغة ** ')
+.addField('     **$help-codes-html**  ' ,' **html يعرض لك اكواد بلغة ** ')
+.addField('     **$help-codes-eric**  ' ,' **eric يعرض لك اكواد بلغة ** ')
+.setColor('#ff5e00')
+  message.channel.sendEmbed(embed);
+    }
+});
+
+client.on('message', message => {
+            if (message.content.startsWith(prefix + "help-codes-js")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField('     **سوف يتم اضافة اكواد** ')
+.setColor('#ff5e00')
+  message.channel.sendEmbed(embed);
+    }
+});
+
+client.on('message', message => {
+            if (message.content.startsWith(prefix + "help-codes-py")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField('     **سوف يتم اضافة اكواد** ')
+.setColor('#ff5e00')
+  message.channel.sendEmbed(embed);
+    }
+});
+
+client.on('message', message => {
+            if (message.content.startsWith(prefix + "help-codes-io")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField('     **سوف يتم اضافة اكواد** ')
+.setColor('#ff5e00')
+  message.channel.sendEmbed(embed);
+    }
+});
+
+client.on('message', message => {
+            if (message.content.startsWith(prefix + "help-codes-html")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField('     **سوف يتم اضافة اكواد** ')
+.setColor('#ff5e00')
+  message.channel.sendEmbed(embed);
+    }
+});
+
+client.on('message', message => {
+            if (message.content.startsWith(prefix + "help-codes-eric")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField('     **سوف يتم اضافة اكواد** ')
+.setColor('#ff5e00')
+  message.channel.sendEmbed(embed);
+    }
+});
+
+
 
 client.login(process.env.BOT_TOKEN);
