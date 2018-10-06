@@ -187,7 +187,7 @@ ms.delete()
 
  message.channel.send('**تم النشر**').then(b => {
 
-var gg = message.guild.channels.find('name', 'codes-js')//اسم الروم الي تبي ينشر فيه
+var gg = message.guild.channels.find('name', '❆-codes-js')//اسم الروم الي تبي ينشر فيه
 if(!gg) return;
 if(gg) {
 gg.send(`@everyone | @here
@@ -240,7 +240,7 @@ ms.delete()
 
  message.channel.send('**تم النشر**').then(b => {
 
-var gg = message.guild.channels.find('name', 'codes-py')//اسم الروم الي تبي ينشر فيه
+var gg = message.guild.channels.find('name', '❆-codes-py')//اسم الروم الي تبي ينشر فيه
 if(!gg) return;
 if(gg) {
 gg.send(`@everyone | @here
@@ -293,7 +293,7 @@ ms.delete()
 
  message.channel.send('**تم النشر**').then(b => {
 
-var gg = message.guild.channels.find('name', 'codes-io')//اسم الروم الي تبي ينشر فيه
+var gg = message.guild.channels.find('name', '❆-codes-io')//اسم الروم الي تبي ينشر فيه
 if(!gg) return;
 if(gg) {
 gg.send(`@everyone | @here
@@ -345,7 +345,7 @@ ms.delete()
 
  message.channel.send('**تم النشر**').then(b => {
 
-var gg = message.guild.channels.find('name', 'codes-eric')//اسم الروم الي تبي ينشر فيه
+var gg = message.guild.channels.find('name', '❆-codes-eric')//اسم الروم الي تبي ينشر فيه
 if(!gg) return;
 if(gg) {
 gg.send(`@everyone | @here
@@ -399,7 +399,7 @@ ms.delete()
 
  message.channel.send('**تم النشر**').then(b => {
 
-var gg = message.guild.channels.find('name', 'codes-html')//اسم الروم الي تبي ينشر فيه
+var gg = message.guild.channels.find('name', '❆-codes-html')//اسم الروم الي تبي ينشر فيه
 if(!gg) return;
 if(gg) {
 gg.send(`@everyone | @here
