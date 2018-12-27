@@ -485,7 +485,7 @@ var msg;
       message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
       message.channel.sendMessage("", {embed: {
         title: "`` Chat Deleted ``",
-        color: #ff0004,
+        color: ff0004,
         footer: {
 
         }
