@@ -461,6 +461,7 @@ client.on('guildMemberAdd', member=> {
 
 
 client.on('message', message => {
+	var prefix = "$";
    if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'clear')) {
 if(!message.channel.guild) return message.channel.send('**This Command is Just For Servers**').then(m => m.delete(5000));
@@ -485,7 +486,7 @@ var msg;
       message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
       message.channel.sendMessage("", {embed: {
         title: "`` Chat Deleted ``",
-        color: ff0004,
+        color: 0x06DF00,
         footer: {
 
         }
@@ -499,7 +500,6 @@ msg.delete();
 })
 }
 });
-
 
 client.on('message', message => {
   if(message.content.startsWith("Register")) {
