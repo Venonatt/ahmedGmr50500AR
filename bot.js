@@ -52,7 +52,7 @@ client.on('message', message => {
 client.on('ready', function(){
   client.user.setStatus("dnd");
     var ms = 40000 ;	
-    var setGame = ['*help','Register'];	
+    var setGame = ['$help','Register'];	
     var i = -1;	
     var j = 0;	
     setInterval(function (){	
@@ -400,7 +400,7 @@ client.on("message", (message) => {
   if (message.author.bot) return;
     if (message.author.id === client.user.id) return;
     if(!message.channel.guild) return;
-if (message.content.startsWith('!credit')) {
+if (message.content.startsWith('$credit')) {
   if(men) {
   if (!profile[men.id]) profile[men.id] = {
    lastDaily:'Not Collected',
