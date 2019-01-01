@@ -70,6 +70,36 @@ j = 1;
 
 
 client.on('message', message => {
+if (message.author.id === client.user.id) return;
+if (message.guild) {
+let embed = new Discord.RichEmbed()
+let args = message.content.split(' ').slice(1).join(' ');
+if(message.content.split(' ')[0] == prefix + 'bc2') {
+if(!message.channel.guild) return message.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');         
+if (!args[1]) {
+return;
+}
+  message.guild.members.forEach(m => {
+if(!message.member.hasPermission('ADMINISTRATOR')) return;
+      var bc = new Discord.RichEmbed()
+      .addField('# | الرسالة ', args)
+      .setThumbnail(message.guild.iconURL)
+      .setColor('RANDOM')
+      m.sendMessage(args)
+  });
+         if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply(":x: **ليس لديك صلاحية للنشر هنا**");
+  const AziRo = new Discord.RichEmbed()   
+  .setColor('RANDOM')
+  message.channel.sendEmbed(AziRo);          
+}
+} else {
+  return;
+}
+});
+
+
+
+client.on('message', message => {
   if(message.content.startsWith(prefix + "تقديم")) {
      message.channel.send("**حسنا... قم بكتابه اسمك**").then(e => {
     let filter = m => m.author.id === message.author.id
@@ -118,7 +148,7 @@ gg.send({embed : new Discord.RichEmbed()
 
 client.on('message', message => {
   if(!message.channel.guild) return;
-if(message.content.startsWith(prefix + "bc")) {
+if(message.content.startsWith(prefix + "bc1")) {
 if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
 if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
 let args = message.content.split(" ").join(" ").slice(prefix.length);
@@ -261,8 +291,8 @@ client.on('message', message => {
 .addField('     **$تقديم** ' ,' **Rank support** ')
 .addField('     **Register** ' ,' **للتسجيل في سيرفر** ')
 .addField('     **$clear ** ' ,' **لمسح شات** ')
-.addField('     **$bc ** ' ,' **للنشر في سيرفر** ')
-
+.addField('     **$bc1 ** ' ,' **مع امبد للنشر في سيرفر** ')
+.addField('     **$bc2 ** ' ,' ** للكل بدون امبد للنشر في سيرفر** ')
 .setColor('#ff5e00')
   message.channel.sendEmbed(embed);
     }
