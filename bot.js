@@ -293,8 +293,6 @@ client.on('message', message => {
 .addField('     **$clear ** ' ,' **لمسح شات** ')
 .addField('     **$bc1 ** ' ,' **مع امبد للنشر في سيرفر** ')
 .addField('     **$bc2 ** ' ,' ** للكل بدون امبد للنشر في سيرفر** ')
-.addField('     **$new ** ' ,' **لاضافة بطاقة** ')
-.addField('     **$new ** ' ,' **لحذف بطاقة** ')
 .setColor('#9502ac')
   message.channel.sendEmbed(embed);
     }
