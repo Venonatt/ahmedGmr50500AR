@@ -52,7 +52,7 @@ client.on('message', message => {
 client.on('ready', function(){
   client.user.setStatus("dnd");
     var ms = 40000 ;	
-    var setGame = ['$help','Register'];	
+    var setGame = ['*help','Register'];	
     var i = -1;	
     var j = 0;	
     setInterval(function (){	
