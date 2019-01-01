@@ -288,11 +288,11 @@ client.on('message', message => {
             if (message.content.startsWith(prefix + prefix + "help" + "-system")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
-.addField('     **$تقديم** ' ,' **Rank support** ')
-.addField('     **Register** ' ,' **للتسجيل في سيرفر** ')
-.addField('     **$clear ** ' ,' **لمسح شات** ')
-.addField('     **$bc1 ** ' ,' **مع امبد للنشر في سيرفر** ')
-.addField('     **$bc2 ** ' ,' ** للكل بدون امبد للنشر في سيرفر** ')
+.addField('     ** *تقديم** ' ,' **Rank support** ')
+.addField('     ** *egister** ' ,' **للتسجيل في سيرفر** ')
+.addField('     ** *clear ** ' ,' **لمسح شات** ')
+.addField('     ** *bc1 ** ' ,' **مع امبد للنشر في سيرفر** ')
+.addField('     ** *bc2 ** ' ,' ** للكل بدون امبد للنشر في سيرفر** ')
 .setColor('#ff5e00')
   message.channel.sendEmbed(embed);
     }
