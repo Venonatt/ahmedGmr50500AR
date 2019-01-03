@@ -322,14 +322,10 @@ client.on('message', message => {
 .addField('     **Register** ' ,' **للتسجيل في سيرفر** ')
 .addField('     **$new** ' ,' **لانشاء تذكرة** ')
 .addField('     **$close** ' ,' **لحذف تذكرة* ')
-.addField('     **$id' ,' **معلومات عن حسابك الشخصي* ')
 .setDescription(`**-----------Command Support-----------**`)
 .addField('     **$bc1 ** ' ,' **مع امبد للنشر في سيرفر** ')
 .addField('     **$bc2 ** ' ,' ** للكل بدون امبد للنشر في سيرفر** ')
 .addField('     **$clear ** ' ,' **لمسح شات** ')
-.addField('     **$mute ** ' ,' **لاعطاء ميوت** ')
-.addField('     **$unmute ** ' ,' **لنزع ميوت** ')
-
 .setColor('#9502ac')
   message.channel.sendEmbed(embed);
     }
@@ -390,37 +386,6 @@ client.on("message", (message) => {
     }
  
 });
-
-
-
-client.on('message', message => { 
-           if (message.content.startsWith(prefix + "id")) {
-     var args = message.content.split(" ").slice(1);
-     let user = message.mentions.users.first();
-     var men = message.mentions.users.first();
-        var heg;
-        if(men) {
-            heg = men
-        } else {
-            heg = message.author
-        }
-      var mentionned = message.mentions.members.first();
-         var h;
-        if(mentionned) {
-            h = mentionned
-        } else {
-            h = message.member
-        }
-               moment.locale('ar-TN');
-      var id = new  Discord.RichEmbed()
-      .setAuthor(message.author.username, message.author.avatarURL) 
-    .setColor("#707070")
-    .addField(': دخولك لديسكورد قبل', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true) 
-    .addField(': انضمامك لسيرفر قبل', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)               
-    .setFooter(`Last Bot`, 'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')                                 
-    .setThumbnail(heg.avatarURL);
-    message.channel.send(id)
-}       });
 
 
 client.login(process.env.BOT_TOKEN);
