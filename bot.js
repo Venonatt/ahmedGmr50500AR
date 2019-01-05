@@ -171,52 +171,28 @@ return;
 
 
 
-client.on("message", async function(msg) {
-    if (msg.author.bot) return undefined;
-    if (msg.channel.type !== "text") return undefined;
-    else {
-        var args = msg.content.toLowerCase().split(" ");
-        if (args[0].slice(prefix.length) === "clear") {//The code created by @L#7574
-            if (isNaN(args[1]) && args[1]) return msg.channel.send("Use numbers man ,_,");
-            if (!msg.guild.member(client.user)) return msg.channel.send('Missing manage messages permission!');
-            if (!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send("You're missing manage messages permission!");
-            else {//The code created by @L#7574
-                if (args[1] || !args[1]) {
-                    await msg.channel.fetchMessages().then(async msgs => {
-                        var word;
-                        if (msgs.size-1 >= 1) word = "messages";
-                        if (msgs.size-1 <= 1) word = "message";
-                        if(msgs.size-1 <= 0) return msg.channel.send(`There are no messages to clear!`);
-                        if (!args[1]) {
-                            if (msgs.size-1 < 100) {
-                                await msg.channel.bulkDelete(msgs.size);
-                                await msg.channel.send(`I've deleted ${msgs.size-=1} ${word}..`);
-                            }
-                            else if (msgs.size-1 >= 100) {
-                                await msg.delete();
-                                await msg.channel.bulkDelete(msgs.size);
-                                await msg.channel.send(`I've deleted ${msgs.size-=1} ${word}..`);
-                            }
-                        }
-                        else if (args[1] && args[1] < 100) {
-                            if (msgs.size-1 < 100 && args[1] < 100 && args[1] > 0) {
-                                await msg.channel.bulkDelete(parseInt(args[1])+1);
-                                await msg.channel.send(`I've deleted ${parseInt(args[1]).toFixed()} ${word}..`);
-                            }
-                            else if (msgs.size-1 >= 100 && args[1] == 100) {
-                                await msg.delete();
-                                await msg.channel.bulkDelete(msgs.size);
-                                await msg.channel.send(`I've deleted ${msgs.size-=1} ${word}`);
-                            }
-                            else {
-                                return msg.channel.send(`Invalid numbers..`);
-                            }
-                        }
-                    });
-                }
-            }
-        }
+client.on('message', msg => {
+  if (msg.author.bot) return;
+  if (!msg.content.startsWith(prefix)) return;
+  let command = msg.content.split(" ")[0];
+  command = command.slice(prefix.length);
+  let args = msg.content.split(" ").slice(1);
+ 
+    if(command === "clear") {
+        const emoji = client.emojis.find("name", "wastebasket")
+    let textxt = args.slice(0).join("");
+    if(msg.member.hasPermission("MANAGE_MESSAGES")) {
+    if (textxt == "") {
+        msg.delete().then
+    msg.channel.send("***```ضع عدد الرسائل التي تريد مسحها 👌```***").then(m => m.delete(3000));
+} else {
+    msg.delete().then
+    msg.delete().then
+    msg.channel.bulkDelete(textxt);
+        msg.channel.send("```php\nعدد الرسائل التي تم مسحها: " + textxt + "\n```").then(m => m.delete(3000));
+        }    
     }
+}
 });
 
 reaction2.on("collect", r => {
