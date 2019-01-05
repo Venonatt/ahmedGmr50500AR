@@ -281,35 +281,7 @@ gg.send({embed : new Discord.RichEmbed()
  }
 })
 
- if (command == "ban") {
-               if(!message.channel.guild) return message.reply('** This command only for servers**');
-         
-  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
-  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
-  let user = message.mentions.users.first();
-  let reason = message.content.split(" ").slice(2).join(" ");
-  /*let b5bzlog = client.channels.find("name", "5bz-log");
- 
-  if(!b5bzlog) return message.reply("I've detected that this server doesn't have a 5bz-log text channel.");*/
-  if (message.mentions.users.size < 1) return message.channel.send(`https://cdn.pg.sa/fjxlms81nk.png`);
-  if(!reason) return message.channel.send(`https://cdn.pg.sa/fjxlms81nk.png`);
-  if (!message.guild.member(user)
-  .bannable) return message.reply(`This User Is Have High Role !`);
- 
-  message.guild.member(user).ban(7, user);
- 
-  const banembed = new Discord.RichEmbed()
-  .setAuthor(`BANNED!`, user.displayAvatarURL)
-  .setColor("RANDOM")
-  .setTimestamp()
-  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
-  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
-  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
-  message.channel.send({
-    embed : banembed
-  })
-}
-});
+
 
 
 
@@ -317,12 +289,8 @@ client.on('message', message => {
             if (message.content.startsWith(prefix + "help")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
-.setDescription(`**-----------Command General-----------**`)
 .addField('     **$تقديم** ' ,' **Rank support** ')
 .addField('     **Register** ' ,' **للتسجيل في سيرفر** ')
-.addField('     **$new** ' ,' **لانشاء تذكرة** ')
-.addField('     **$close** ' ,' **لحذف تذكرة* ')
-.setDescription(`**-----------Command Support-----------**`)
 .addField('     **$bc1 ** ' ,' **مع امبد للنشر في سيرفر** ')
 .addField('     **$bc2 ** ' ,' ** للكل بدون امبد للنشر في سيرفر** ')
 .addField('     **$clear ** ' ,' **لمسح شات** ')
@@ -332,60 +300,6 @@ client.on('message', message => {
 });
 
 
-client.on("message", (message) => {
-   if (message.content.startsWith("$new")) {     
-        const reason = message.content.split(" ").slice(1).join(" ");     
-        if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`);
-        if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`You already have a ticket open.`);    
-        message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
-            let role = message.guild.roles.find("name", "Support Team");
-            let role2 = message.guild.roles.find("name", "@everyone");
-            c.overwritePermissions(role, {
-                SEND_MESSAGES: true,
-                READ_MESSAGES: true
-            });    
-            c.overwritePermissions(role2, {
-                SEND_MESSAGES: false,
-                READ_MESSAGES: false
-            });
-            c.overwritePermissions(message.author, {
-                SEND_MESSAGES: true,
-                READ_MESSAGES: true
-            });
-            message.channel.send(`:white_check_mark: **تم إنشاء تذكرتك ، #${c.name}.**`);
-            const embed = new Discord.RichEmbed()
-                .setColor(0xCF40FA)
-                .addField(`مرحباّ ${message.author.username}!`, `يرجى محاولة شرح سبب فتح هذه التذكرة بأكبر قدر ممكن من التفاصيل. سيكون فريق الدعم لدينا قريبا للمساعدة.`)
-                .setTimestamp();
-            c.send({
-                embed: embed
-            });
-        }).catch(console.error);
-    }
- 
- 
-  if (message.content.startsWith("*$close")) {
-        if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
- 
-        message.channel.send(`هل أنت متأكد؟ بعد التأكيد ، لا يمكنك عكس هذا الإجراء!\n للتأكيد ، اكتب\`*confirm\`. سيؤدي ذلك إلى مهلة زمنية في غضون 10 ثوانٍ وإلغائها`)
-            .then((m) => {
-                message.channel.awaitMessages(response => response.content === '*confirm', {
-                        max: 1,
-                        time: 10000,
-                        errors: ['time'],
-                    })   
-                    .then((collected) => {
-                        message.channel.delete();
-                    })    
-                    .catch(() => {
-                        m.edit('Ticket close timed out, the ticket was not closed.').then(m2 => {
-                            m2.delete();
-                        }, 3000);
-                    });
-            });
-    }
- 
-});
 
 
 client.login(process.env.BOT_TOKEN);
