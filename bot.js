@@ -171,39 +171,54 @@ return;
 
 
 
-client.on('message', message => {
-	var prefix = "$";
-   if(!message.channel.guild) return;
-if(message.content.startsWith(prefix + 'clear')) {
-if(!message.channel.guild) return message.channel.send('**This Command is Just For Servers**').then(m => m.delete(5000));
-if(!message.member.hasPermission('MANAGE_MESSAGES')) return      message.channel.send('**You Do not have permission** `MANAGE_MESSAGES`' );
-let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-let request = `Requested By ${message.author.username}`;
-message.channel.send(`**Are You sure you want to clear the chat?**`).then(msg => {
-msg.react('✅')
-.then(() => msg.react('❌'))
-.then(() =>msg.react('✅'))
-
-let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
-let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
-
-let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
-let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
-reaction1.on("collect", r => {
-message.channel.send(`Chat will delete`).then(m => m.delete(5000));
-var msg;
-        msg = parseInt();
-
-      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
-      message.channel.sendMessage("", {embed: {
-        title: "`` Chat Deleted ``",
-        color: 0x06DF00,
-        footer: {
-
+client.on("message", async function(msg) {
+    if (msg.author.bot) return undefined;
+    if (msg.channel.type !== "text") return undefined;
+    else {
+        var args = msg.content.toLowerCase().split(" ");
+        if (args[0].slice(prefix.length) === "clear") {//The code created by @L#7574
+            if (isNaN(args[1]) && args[1]) return msg.channel.send("Use numbers man ,_,");
+            if (!msg.guild.member(client.user)) return msg.channel.send('Missing manage messages permission!');
+            if (!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send("You're missing manage messages permission!");
+            else {//The code created by @L#7574
+                if (args[1] || !args[1]) {
+                    await msg.channel.fetchMessages().then(async msgs => {
+                        var word;
+                        if (msgs.size-1 >= 1) word = "messages";
+                        if (msgs.size-1 <= 1) word = "message";
+                        if(msgs.size-1 <= 0) return msg.channel.send(`There are no messages to clear!`);
+                        if (!args[1]) {
+                            if (msgs.size-1 < 100) {
+                                await msg.channel.bulkDelete(msgs.size);
+                                await msg.channel.send(`I've deleted ${msgs.size-=1} ${word}..`);
+                            }
+                            else if (msgs.size-1 >= 100) {
+                                await msg.delete();
+                                await msg.channel.bulkDelete(msgs.size);
+                                await msg.channel.send(`I've deleted ${msgs.size-=1} ${word}..`);
+                            }
+                        }
+                        else if (args[1] && args[1] < 100) {
+                            if (msgs.size-1 < 100 && args[1] < 100 && args[1] > 0) {
+                                await msg.channel.bulkDelete(parseInt(args[1])+1);
+                                await msg.channel.send(`I've deleted ${parseInt(args[1]).toFixed()} ${word}..`);
+                            }
+                            else if (msgs.size-1 >= 100 && args[1] == 100) {
+                                await msg.delete();
+                                await msg.channel.bulkDelete(msgs.size);
+                                await msg.channel.send(`I've deleted ${msgs.size-=1} ${word}`);
+                            }
+                            else {
+                                return msg.channel.send(`Invalid numbers..`);
+                            }
+                        }
+                    });
+                }
+            }
         }
-      }}).then(msg => {msg.delete(3000)});
+    }
+});
 
-})
 reaction2.on("collect", r => {
 message.channel.send(`**Chat deletion cancelled**`).then(m => m.delete(5000));
 msg.delete();
