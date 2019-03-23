@@ -337,13 +337,6 @@ client.on("message", (message) => {
 });
 
 
-client.on('message', function(message){
-    if (message.content === prefix + "start") { 
-      var interval = setInterval (function () {
-        message.channel.send("#daily")
-        console.log("Daily Claimed")
-      }, 1 * 86400000); 
-    }
-});
+
 
 client.login(process.env.BOT_TOKEN);
