@@ -274,6 +274,8 @@ client.on('message', message => {
 .addField('     **$bc3 ** ' ,' ** اونلاين مع منشن** ')
 .addField('     **$clear ** ' ,' **لمسح شات** ')
 .addField('     **$new ** ' ,' **لاضافة تكت** ')
+.addField('     **$servers ** ' ,' **معلومات سيرفر** ')
+
 
 .setColor('#9502ac')
   message.channel.sendEmbed(embed);
@@ -337,6 +339,15 @@ client.on("message", (message) => {
 });
 
 
+client.on('message', async msg => {
+  if(msg.content.startsWith('$servers')) {
+    let output = '**Servers**\n';
+    client.guilds.forEach(guild => {
+      output += `**Name**: ${guild.name}, **ID**: ${guild.id}, **MembersCount**: ${guild.memberCount}, **Owner**: ${guild.owner}`;
+    });
+    msg.channel.send(output);
+  }
+});
 
 
 client.login(process.env.BOT_TOKEN);
